@@ -1,3 +1,4 @@
+clear all; clc; close all;
 % Q1 
 % tools = few256;
 % 
@@ -64,12 +65,49 @@
 % threshold = 10;
 % showgrey((gradmaggpic-threshold)>0);
 
-% Q4
+% from  Q4 to Q6
 scale = [0.0001 1.0 4.0 16.0 64.0];
 house = godthem256;
 contour(Lvvtilde(discgaussfft(house,scale(1)), 'same'), [0 0])
 axis('image')
 axis('ij')
+%---------------------------------------------------
 
+% tools = few256;
+% scale = 1.0;
+% showgrey(Lvvvtilde(discgaussfft(tools, scale), 'same') < -500);
+
+
+% Q7 program the function edgecurves
+
+% tools = few256;
+% house = godthem256;
+% 
+% pic = tools;
+% scale = [0.0001 1.0 4.0 16.0 64.0];
+% 
+% determine edges threshold with respect to the gradient magnitude at arbitrary scale
+
+% for i = 1 : 5
+% figure(i);
+% gpic = discgaussfft(pic, scale(i)); % determine edges threshold with respect to the gradient magnitude at arbitrary scale
+% gradmaggpic = sqrt(Lv(gpic));
+% % showgrey(gradmaggpic);
+% % title(sprintf('pic = %s at scale = %.2f', pic, scale(i)));
+% % figure(2*i);
+% histogram(gradmaggpic(:));
+% hold on;
+% title(sprintf('pic = %s at scale = %.2f', pic, scale(i)));
+% end
+% figure(1);
+% scale = 4;
+% threshold = 8 ;
+% extractedge(tools, scale, threshold);
+% title('scale = 4, threshold = 8', 'Fontsize',18);
+% figure(2);
+% scale = 4;
+% threshold = 4 ;
+% extractedge(house, scale, threshold);
+% title('scale = 4, threshold = 4', 'Fontsize', 18);
 
 

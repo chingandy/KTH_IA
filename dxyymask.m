@@ -1,5 +1,5 @@
 function result = dxyymask
 
-result = con2(dxymask, dymask, 'same');
+result = conv2(dxymask, dymask, 'same');
 
 end
